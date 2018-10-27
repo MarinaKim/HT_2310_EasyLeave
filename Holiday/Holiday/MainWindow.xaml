@@ -1,0 +1,65 @@
+﻿<Window x:Class="Holiday.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Holiday"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600">
+    <Window.Resources>
+        <Style x:Key="GridRowStyle">
+            <Setter Property="Control.Margin" Value="100 0 100 0"></Setter>            
+        </Style>
+        <Style x:Key="GridRowFrame">
+            <Setter Property="Control.Margin" Value="100 30 100 30"></Setter>
+        </Style>
+        <Style x:Key="GridRowStyleGreen"
+               BasedOn="{StaticResource GridRowStyle}">
+            <Setter Property="Control.Background" Value="Green"></Setter>
+        </Style>
+        <Style x:Key="GridRowStyleLightBlue"
+               BasedOn="{StaticResource GridRowFrame}">
+            <Setter Property="Control.Background" Value="LightBlue"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Style="{StaticResource GridRowStyleGreen}">
+            <Label HorizontalAlignment="Center" 
+               VerticalAlignment="Center"                   
+               Foreground="White"
+               FontSize="36"
+               FontWeight="Bold"
+               >EASY LEAVE</Label>
+        </Grid>
+
+        <Grid Grid.Row="1" 
+              Style="{StaticResource GridRowStyle}">
+            <Menu FontSize="22" x:Name="MainMenu">
+                <MenuItem Header="Home"></MenuItem>
+                <MenuItem Header="About Us"></MenuItem>
+                <MenuItem Header="Contact Us"></MenuItem>
+                <MenuItem Header="Log On"
+                          x:Name="miLogOn"
+                          Click="miLogOn_Click"></MenuItem>
+            </Menu>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Style="{StaticResource GridRowStyleLightBlue}">
+            <Frame x:Name="fCentral" NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
+
+        <Grid Grid.Row="3"
+              Style="{StaticResource GridRowStyleGreen}">
+            <Label></Label>
+        </Grid>
+    </Grid>
+</Window>
